@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import type { BookModel } from "../../../models/BookModel";
 import { useAuth } from "../../../auth/AuthContext";
 import { useEffect, useState } from "react";
@@ -41,7 +40,7 @@ export const CheckoutBox: React.FC<CheckoutBoxProps> = ({
       try {
         const statusResponse = await bookService.checkCheckoutStatus(book.id);
         setIsCheckedOut(statusResponse.isCheckedOut);
-      } catch (error) {
+      } catch {
         setIsCheckedOut(false);
       } finally {
         setIsCheckingStatus(false);

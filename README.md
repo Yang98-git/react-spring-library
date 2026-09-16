@@ -152,6 +152,21 @@ npm run lint
 npm run preview
 ```
 
+## Continuous integration
+
+This repository includes a lightweight GitHub Actions workflow at
+`.github/workflows/ci.yml`. It runs on pushes to `main` and on pull requests
+targeting `main`.
+
+The workflow validates both applications:
+
+- Frontend: `npm ci`, `npm run lint`, and `npm run build`
+- Backend: Maven package with Java 21
+
+This is CI only; it does not deploy the application. Deployment would require
+separate hosted services for the frontend, Spring Boot API, MySQL, and
+Keycloak.
+
 ## API overview
 
 | Area | Base path | Purpose |
@@ -164,4 +179,3 @@ npm run preview
 | Protected profile | `/api/protected` | Authenticated-user access example |
 
 Public read operations are available for book and review data. Checkout, shelf, review submission, and messaging operations require authentication. Administrator message operations require the `admin` role.
-
