@@ -165,34 +165,3 @@ npm run preview
 
 Public read operations are available for book and review data. Checkout, shelf, review submission, and messaging operations require authentication. Administrator message operations require the `admin` role.
 
-## Security highlights
-
-- Keycloak handles login and registration
-- The frontend uses the Authorization Code flow with PKCE
-- Spring Security validates Keycloak-issued JWTs
-- The backend is stateless and does not rely on server sessions
-- Realm roles are mapped to Spring Security authorities
-- CORS is restricted to the configured frontend origin
-- Protected routes are enforced in both the frontend and backend
-- Database credentials remain local and are excluded from Git
-
-## Interview discussion points
-
-This project is a good example of:
-
-1. Designing a full-stack feature across UI, REST endpoints, services, persistence, and authentication.
-2. Separating controller, service, repository, entity, request, and response responsibilities.
-3. Implementing OAuth2/JWT security with Keycloak and role-based authorization.
-4. Handling stateful business workflows such as checkout, return, and borrowing history.
-5. Building reusable React authentication and API-request utilities.
-6. Using pagination for catalog and review data instead of loading unbounded results.
-7. Managing frontend and backend configuration separately for local development.
-
-## Future improvements
-
-- Add Docker Compose for MySQL and Keycloak
-- Move all backend configuration to environment variables or a secrets manager
-- Add integration tests for checkout, authorization, and review workflows
-- Add automated CI for frontend lint/build and backend tests
-- Add API documentation with OpenAPI/Swagger
-
